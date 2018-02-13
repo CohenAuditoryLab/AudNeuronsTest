@@ -41,7 +41,7 @@ function neuronSpikesSummary = AudNeuronsTest()
             startTime = sounds(t,1); endTime = sounds(t,2);
             spikesTrial(t) = numel(spikesData(spikesData(:,2)>startTime & spikesData(:,2)< endTime & spikesData(:,1) == uniqueNeurons(i),2));
             % get before trial spikes
-            spikesBefore(t) = numel(spikesData((spikesData(:,2)<startTime & spikesData(:,2)> (startTime-(endTime-startTime)) & spikesData(:,1) == uniqueNeurons(i)),:));
+            spikesBefore(t) = numel(spikesData((spikesData(:,2)<startTime & spikesData(:,2)> (startTime-(endTime-startTime)) & spikesData(:,1) == uniqueNeurons(i)),2));
         end
         newSummary = [];
         newSummary.trialMean = mean(spikesTrial);
